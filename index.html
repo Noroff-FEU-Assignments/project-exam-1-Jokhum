@@ -10,45 +10,59 @@
     <link href="css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.typekit.net/hmu8afg.css" />
     <link rel="stylesheet" href="css/font/flaticon.css" />
-    <script src="https://kit.fontawesome.com/41fed443ad.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/41fed443ad.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body class="home">
-    <div class="background-image-mobile">
-    <div class="nav-container">
-      <nav class="nav-bar">
-        <li class="nav-button">
-          <a href="index.html">Home</a>
-        </li>
-        <li>
-          <a href="posts.html">Posts</a>
-        </li>
-        <li>
-          <a href="about.html">About</a>
-        </li>
-        <li>
-          <a href="contact.html">Contact</a>
-        </li>
-        <div class="social-media-menu-web">
-          <i class="flaticon-facebook" class="icons"></i>
-          <i class="flaticon-instagram" class="icons"></i>
-          <i class="flaticon-twitter" class="icons"></i>
-          <i class="flaticon-messenger" class="icons"></i>
-        </div>
-      </div>
-      <div class="techy-title"><h1 class="title-text">Techy</h1>
-        <p class="subtitle-text">Your supplier of product reviews.</p></div>
+    <header class="main-header">
       <div class="social-media-menu">
         <i class="flaticon-facebook" class="icons"></i>
         <i class="flaticon-instagram" class="icons"></i>
         <i class="flaticon-twitter" class="icons"></i>
         <i class="flaticon-messenger" class="icons"></i>
       </div>
-      </nav>
-  </div>
-    <header></header>
+      <div class="techy-title">
+        <h1 class="title-text">Techy</h1>
+        <p class="subtitle-text">Your supplier of product reviews.</p>
+      </div>
+      <div class="nav-container">
+        <button class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </button>
+        <nav class="nav-bar" id="nav-bar">
+          <li class="nav-button">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="nav-button">
+            <a href="posts.html">Posts</a>
+          </li>
+          <li class="nav-button">
+            <a href="about.html">About</a>
+          </li>
+          <li class="nav-button">
+            <a href="contact.html">Contact</a>
+          </li>
+        </nav>
+      </div>
+    </header>
     <main>
-      <h2>Latest posts</h2>
-      
+      <h2 class="site-title">Latest posts</h2>
+      <div class="carousel-container">
+        <div class="button-container" id="prev-arrow-cont">
+      <a class="prev">&#10094</a>
+    </div>
+      <div class="post-container">    
+      </div>
+      <div class="button-container" id="next-arrow-cont">
+      <a class="next">&#10095</a>
+    </div>
+    </div>
     </main>
+    <footer id="footer">
+      <p>©copyright pw</p>
+    </footer>
+    <script src="js/script.js"></script>
   </body>
 </html>
