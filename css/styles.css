@@ -11,11 +11,20 @@
 }
 
 body {
-  width: 100vw;
+  width: 100%;
 }
 
 main {
   padding-bottom: 80px;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }
 
 /* Icon changes */
@@ -48,17 +57,6 @@ p {
   font-style: normal;
   font-size: 14px;
   color: #4b4b4b;
-}
-
-/* Changes to LI & UL */
-
-li {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  color: white;
 }
 
 /* Navigation bar */
@@ -135,7 +133,7 @@ a {
 }
 
 .title-text {
-  margin: 5px 0 5px 0;
+  margin: 0 0 5px 0;
 }
 
 .subtitle-text {
@@ -157,14 +155,6 @@ a {
   text-align: center;
 }
 
-.post-container {
-  display: flex;
-  flex-flow: row wrap;
-  text-align: center;
-  gap: 15px;
-  justify-content: space-around;
-}
-
 /* Carousel */
 
 .carousel-container {
@@ -172,11 +162,11 @@ a {
   flex-direction: row;
   align-items: center;
   margin: 0 1rem 0 1rem;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .button-container {
-  margin: 0 5px 0 5px;
+  margin: 0 1rem 0 1rem;
 }
 
 .button-container .prev,
@@ -207,8 +197,7 @@ a {
   height: 30px;
   position: fixed;
   bottom: 0;
-  width: 100%;
-  background-color: white;
+  width: 100vw;
   margin-top: 5px;
 }
 
@@ -220,6 +209,7 @@ a {
   .main-header {
     display: flex;
     flex-direction: column-reverse;
+    border-bottom: 1px solid #4b4b4b;
   }
 
   /*Navigation*/
@@ -246,15 +236,31 @@ a {
   .nav-button:hover a {
     color: white;
   }
+
+  .nav-bar #active {
+    padding: 18px 0 10px 0;
+    margin-bottom: 8px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 0 0 5px 5px;
+  }
+
+  .nav-bar #active a {
+    color: #4b4b4b;
+  }
+
   .social-media-menu {
-    height: 50px;
-    border-top: 1px solid white;
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    padding-top: 5px;
+    height: 60px;
   }
 
   /* Icons */
 
   i[class^="flaticon-"] {
-    font-size: 25px;
+    font-size: 18px;
   }
 
   /* Social Media Menu */
@@ -273,5 +279,14 @@ a {
   .subtitle-text {
     font-size: 16px;
     width: 150px;
+  }
+
+  /* Main Content*/
+
+  /* Carousel */
+
+  .button-container .prev,
+  .button-container .next {
+    font-size: 40px;
   }
 }
