@@ -31,6 +31,9 @@
         <button class="hamburger" id="hamburger">
           <i class="fas fa-bars"></i>
         </button>
+        <button class="close-burger" id="close-burger">
+          <i class="fas fa-times"></i>
+        </button>
         <nav class="nav-bar" id="nav-bar">
           <li class="nav-button">
             <a href="index.html">Home</a>
@@ -48,11 +51,73 @@
       </div>
     </header>
     <main>
-      <h2 class="site-title">Contact</h2>
+      <h2 class="site-title">Contact <span class="techy-text">Techy</span></h2>
+      <div id="contact-information-form-container">
+        <div class="contact-information-map-container">
+          <section class="contact-information">
+            <section class="contact-category">
+              <p class="category-title">Adress:</p>
+              <p>Kirsten Flagstads Plass 1.</p>
+              <p>05150 Oslo, Norge.</p>
+            </section>
+            <section class="contact-category">
+              <p class="category-title">Phone:</p>
+              <p>222 23 242</p>
+            </section>
+            <section class="contact-category">
+              <p class="category-title">E-mail:</p>
+              <p>techy@techy.com</p>
+            </section>
+          </section>
+          <div id="map-container">
+            <iframe
+              class="g-map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4001.359347280674!2d10.755853787335015!3d59.9042666915083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46416e8ba321f715%3A0x1cb6a7c6a2a2d611!2sOperahuset%20Oslo!5e0!3m2!1sno!2sse!4v1619266239633!5m2!1sno!2sse"
+            ></iframe>
+          </div>
+        </div>
+        <h2 class="site-title">Or use our contact form below:</h2>
+        <div id="form-container">
+          <form id="contact-form">
+            <div class="form-item">
+              <label class="formLabel" for="subject">Subject:</label>
+              <input id="subject" class="form" type="text" name="subject" />
+              <div id="subjectError" class="form-error">
+                Please enter a subject.
+              </div>
+            </div>
+            <div class="form-item">
+              <label class="formLabel" for="name">Your Name:</label>
+              <input id="name" class="form" type="text" name="name" />
+              <div id="nameError" class="form-error">
+                Please enter your name.
+              </div>
+            </div>
+            <div class="form-item">
+              <label class="formLabel" for="e-mail">Your E-mail:</label>
+              <input id="e-mail" class="form" type="text" name="e-mail" />
+              <div id="e-mailError" class="form-error">
+                Please enter a valid e-mail.
+              </div>
+            </div>
+            <div class="form-item">
+              <label class="formLabel" for="details">Further details:</label>
+              <input id="details" class="form" type="text" name="details" />
+              <div id="detailsError" class="form-error">
+                Please enter details surrounding your reachout to us.
+              </div>
+            </div>
+            <div class="form-item" id="form-button-item">
+              <button id="form-submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </main>
     <footer id="footer">
       <p>©copyright pw</p>
     </footer>
+
     <script src="js/script.js"></script>
   </body>
 </html>
