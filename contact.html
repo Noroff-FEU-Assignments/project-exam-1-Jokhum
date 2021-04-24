@@ -58,7 +58,7 @@
             <section class="contact-category">
               <p class="category-title">Adress:</p>
               <p>Kirsten Flagstads Plass 1.</p>
-              <p>05150 Oslo, Norge.</p>
+              <p>0150 Oslo, Norge.</p>
             </section>
             <section class="contact-category">
               <p class="category-title">Phone:</p>
@@ -96,17 +96,26 @@
             <div class="form-item">
               <label class="formLabel" for="e-mail">Your E-mail:</label>
               <input id="e-mail" class="form" type="text" name="e-mail" />
-              <div id="e-mailError" class="form-error">
+              <div id="emailError" class="form-error">
                 Please enter a valid e-mail.
               </div>
             </div>
             <div class="form-item">
               <label class="formLabel" for="details">Further details:</label>
-              <input id="details" class="form" type="text" name="details" />
+              <textarea id="details" form="contact-form" name="details">
+Your message...</textarea
+              >
               <div id="detailsError" class="form-error">
-                Please enter details surrounding your reachout to us.
+                Please tell us abit more about the problem.
               </div>
             </div>
+            <!--             <div class="form-item">
+              
+              <input id="details" class="form" type="text" name="details" />
+              
+                Please enter details surrounding your reachout to us.
+              </div>
+            </div> -->
             <div class="form-item" id="form-button-item">
               <button id="form-submit">Submit</button>
             </div>
@@ -117,7 +126,7 @@
     <footer id="footer">
       <p>©copyright pw</p>
     </footer>
-
+    <script src="js/contactform.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>
