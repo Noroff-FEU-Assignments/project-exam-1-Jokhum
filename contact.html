@@ -51,6 +51,7 @@
       </div>
     </header>
     <main>
+      <div class="fade-out" id="fade-out"></div>
       <h2 class="site-title">Contact <span class="techy-text">Techy</span></h2>
       <div id="contact-information-form-container">
         <div class="contact-information-map-container">
@@ -102,9 +103,12 @@
             </div>
             <div class="form-item">
               <label class="formLabel" for="details">Further details:</label>
-              <textarea id="details" form="contact-form" name="details">
-Your message...</textarea
-              >
+              <textarea
+                id="details"
+                form="contact-form"
+                name="details"
+                placeholder="Your message..."
+              ></textarea>
               <div id="detailsError" class="form-error">
                 Please tell us abit more about the problem.
               </div>

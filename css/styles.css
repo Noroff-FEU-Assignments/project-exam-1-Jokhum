@@ -12,6 +12,7 @@
 
 body {
   width: 100%;
+  min-height: 100vh;
 }
 
 main {
@@ -163,10 +164,21 @@ p {
 
 /* Main Content */
 
+.fade-out {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: absolute;
+  z-index: 99;
+  background: black;
+  opacity: 30%;
+}
+
 /* Site Title */
 
 .site-title {
-  margin: 2rem;
+  padding: 2rem;
   text-align: center;
 }
 
@@ -268,6 +280,12 @@ p {
   border-radius: 5px;
   width: 300px;
 }
+
+#contact-form input,
+textarea {
+  padding: 4px;
+}
+
 .form-item {
   display: flex;
   flex-direction: column;
@@ -296,7 +314,6 @@ p {
   width: 268px;
   font-size: 14px;
   resize: none;
-  padding: 4px;
 }
 
 #form-button-item {
