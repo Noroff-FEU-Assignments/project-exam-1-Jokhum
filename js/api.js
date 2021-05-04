@@ -6,6 +6,24 @@ const buttonNext = document.querySelector("#next-arrow-cont");
 
 let length = 5;
 let offset = 0;
+let smallMedia = true;
+let bigMedia = true;
+let width = validateWidth();
+
+function validateWidth() {
+
+    if (window.innerWidth <= 1024) {
+
+        return 2;
+
+    }
+
+    if (window.innerWidth >= 1025) {
+
+        return 4;
+
+    }
+}
 
 async function getPosts(url) {
 
@@ -28,7 +46,7 @@ async function getPosts(url) {
 
     postContainer.innerHTML = "";
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < width; i++) {
         
         postContainer.innerHTML += `
                                     <div class="post-card">
@@ -44,6 +62,32 @@ async function getPosts(url) {
         console.log(error);
     }
 }
+
+
+window.addEventListener("resize", () => {
+
+    if (window.innerWidth <= 1024 && smallMedia) {
+
+        smallMedia = false;
+
+        bigMedia = true;
+
+        width = validateWidth();
+
+        getPosts(url);
+    }
+    
+    if (window.innerWidth >= 1025 && bigMedia) {
+
+        smallMedia = true;
+
+        bigMedia = false;
+
+        width = validateWidth();
+
+        getPosts(url);
+    }
+});
 
 buttonPrevious.addEventListener("click", () => {
 
