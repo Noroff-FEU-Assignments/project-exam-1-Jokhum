@@ -8,6 +8,7 @@
   font-family: niveau-grotesk, sans-serif;
   font-style: normal;
   font-weight: 200;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -188,14 +189,13 @@ p {
   text-decoration: underline;
 }
 
-/* Carousel */
+/* Carousel on index*/
 
 .carousel-container {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
   align-items: center;
-  margin: 0 1rem 0 1rem;
-  justify-content: center;
 }
 
 .button-container {
@@ -210,13 +210,96 @@ p {
   color: #4b4b4b;
 }
 
+.post-container {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+/* Post View on Posts Page */
+
+.posts-container {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  gap: 25px;
+}
+
+.hidden-posts-container {
+  display: none;
+  justify-content: center;
+  flex-flow: row wrap;
+  gap: 25px;
+  margin: 25px;
+}
+
+.see-more-btn-container {
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+#see-more-button {
+  border: 1px solid #d62f26;
+  border-radius: 5px;
+  background-color: #4b4b4b;
+  color: white;
+  padding: 10px 15px 10px 15px;
+}
+
+#btt-btn {
+  border: 1px solid #d62f26;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 25px;
+  display: none;
+  color: #4b4b4b;
+  position: fixed;
+  bottom: 65px;
+  right: 30px;
+}
+
 /* Blog "Card" */
 
-.blog-post-card {
-  min-height: 250px;
-  min-width: 160px;
+.post-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: clip;
+  max-height: 400px;
+  max-width: 160px;
   border: 1px solid #4b4b4b;
   border-radius: 5px 5px 0px 0px;
+}
+
+.post-card figcaption {
+  display: none;
+}
+
+.post-card img {
+  background-size: cover;
+  max-width: 100%;
+  height: auto;
+  border-bottom: 1px solid #4b4b4b;
+}
+
+.post-card-title {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 20px;
+  text-shadow: 1px 1px 1px black;
+}
+
+.post-card p {
+  padding-top: 10px;
+  width: 90%;
 }
 
 /* Contact */
@@ -431,10 +514,46 @@ textarea {
 
   /* Main Content*/
 
+  /* Index */
+
+  .post-container {
+    margin: 0 100px 0 100px;
+    padding: 25px 0 0 0;
+    gap: 100px;
+  }
+
   /* Carousel */
 
   .button-container .prev,
   .button-container .next {
     font-size: 40px;
+    margin: 0 100px 0 100px;
+  }
+
+  /* Posts Page */
+
+  .posts-container {
+    margin: 0 200px 0 200px;
+    padding: 25px 100px 0 100px;
+    gap: 100px;
+  }
+
+  .hidden-posts-container {
+    margin: 100px 200px 0 200px;
+    gap: 100px;
+  }
+
+  /* Product Cards */
+
+  .post-card {
+    max-height: 550px;
+    max-width: 250px;
+    border: 1px solid #4b4b4b;
+    border-radius: 5px 5px 0px 0px;
+  }
+
+  .post-card img {
+    max-width: 250px;
+    height: auto;
   }
 }
