@@ -46,13 +46,16 @@ async function getPosts(url) {
 }
 
 buttonPrevious.addEventListener("click", () => {
-    if (offset >= 4) {
+
         offset -= 4;
-    }
+
     getPosts(url);
 });
+
 buttonNext.addEventListener("click", () => {
+
     offset += 4;
+
     getPosts(url);
 });
 
