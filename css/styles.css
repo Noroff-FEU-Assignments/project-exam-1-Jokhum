@@ -121,6 +121,17 @@ p {
   background-color: #4b4b4b;
 }
 
+.fade-out {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: absolute;
+  z-index: 99;
+  background: black;
+  opacity: 30%;
+}
+
 /* Social Media Menu */
 
 .social-media-menu {
@@ -165,100 +176,32 @@ p {
 
 /* Main Content */
 
-.fade-out {
-  display: none;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  position: absolute;
-  z-index: 99;
-  background: black;
-  opacity: 30%;
-}
-
-/* Site Title */
-
-.site-title {
-  padding: 2rem;
-  text-align: center;
-}
-
-.techy-text {
-  font-weight: 400;
-  font-style: italic;
-  text-decoration: underline;
-}
-
-/* Carousel on index*/
-
-.carousel-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.button-container {
-  margin: 0 1rem 0 1rem;
-}
-
-.button-container .prev,
-.button-container .next {
-  cursor: pointer;
-  font-size: 35px;
-  font-weight: 800;
+.loading {
   color: #4b4b4b;
-}
-
-.post-container {
-  display: flex;
-  flex-flow: row wrap;
-  gap: 25px;
-  justify-content: center;
-}
-
-/* Post View on Posts Page */
-
-.posts-container {
-  display: flex;
-  justify-content: center;
-  flex-flow: row wrap;
-  gap: 25px;
-}
-
-.hidden-posts-container {
-  display: none;
-  justify-content: center;
-  flex-flow: row wrap;
-  gap: 25px;
-  margin: 25px;
-}
-
-.see-more-btn-container {
-  margin: 50px;
-  display: flex;
-  justify-content: center;
-}
-
-#see-more-button {
-  border: 1px solid #d62f26;
-  border-radius: 5px;
-  background-color: #4b4b4b;
-  color: white;
-  padding: 10px 15px 10px 15px;
-}
-
-#btt-btn {
-  border: 1px solid #d62f26;
-  padding: 5px;
-  border-radius: 5px;
-  cursor: pointer;
+  font-weight: 700;
   font-size: 25px;
-  display: none;
-  color: #4b4b4b;
-  position: fixed;
-  bottom: 65px;
-  right: 30px;
+}
+
+.loading:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4, end) 800ms infinite;
+  animation: ellipsis steps(4, end) 800ms infinite;
+  content: "\2026";
+  width: 0px;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 1.25em;
+  }
 }
 
 /* Blog "Card" */
@@ -298,8 +241,99 @@ p {
 }
 
 .post-card p {
-  padding-top: 10px;
+  padding: 10px 0 10px 0;
   width: 90%;
+}
+
+/* Site Title */
+
+.site-title {
+  padding: 2rem;
+  text-align: center;
+}
+
+.techy-text {
+  font-weight: 400;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+/* Carousel on index*/
+
+.carousel-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#prev-arrow-cont,
+#next-arrow-cont {
+  cursor: pointer;
+  font-size: 35px;
+  position: absolute;
+  color: #4b4b4b;
+}
+
+#prev-arrow-cont {
+  left: 20px;
+}
+
+#next-arrow-cont {
+  right: 20px;
+}
+
+.post-container {
+  margin: 0 45px 0 45px;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+/* Post View on Posts Page */
+
+.posts-container {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  gap: 25px;
+}
+
+.hidden-posts-container {
+  display: none;
+  justify-content: center;
+  flex-flow: row wrap;
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.see-more-btn-container {
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+#see-more-button {
+  cursor: pointer;
+  border: 1px solid #d62f26;
+  border-radius: 5px;
+  background-color: #4b4b4b;
+  color: white;
+  padding: 10px 15px 10px 15px;
+}
+
+#btt-btn {
+  cursor: pointer;
+  font-size: 25px;
+  display: none;
+  background-color: #4b4b4b;
+  padding: 5px;
+  border-radius: 5px;
+  color: #d62f26;
+  position: fixed;
+  bottom: 35px;
+  right: 15px;
 }
 
 /* Contact */
@@ -527,6 +561,7 @@ textarea {
   .button-container .prev,
   .button-container .next {
     font-size: 40px;
+    position: absolute;
     margin: 0 100px 0 100px;
   }
 

@@ -1,21 +1,41 @@
 const url = "https://jkmzd.eu/blog-api/wp-json/wp/v2/posts";
 
 const postContainer = document.querySelector(".post-container");
+
 const buttonPrevious = document.querySelector("#prev-arrow-cont");
+
 const buttonNext = document.querySelector("#next-arrow-cont");
 
-let length = 2;
-let offset = 0;
  
+
+let length = 4;
+let offset = 0;
+
+
+
 
 
 async function getPosts() {
 
-    const response = await fetch(url);
+
+    try {
+
+
+    const response = await fetch(url + `?per_page=${length}&offset=${offset}&?_embed`);
 
     const json = await response.json();
 
-    console.log(json);
+    if (offset === 0) {
+        buttonPrevious.style.display = "none";
+    } else {
+        buttonPrevious.style.display = "block";
+    }
+    if (json.length < 4) {
+        buttonNext.style.display = "none";
+    } else {
+        buttonNext.style.display = "block";
+    }
+
 
     postContainer.innerHTML = "";
 
@@ -30,16 +50,21 @@ async function getPosts() {
                                     </div
                                     `;
     }
-}
+
+
+    } catch (error) {
+        console.log(error);
+    }
+};
 
 buttonPrevious.addEventListener("click", () => {
-    if (offset >= 2) {
-        offset -= 2;
+    if (offset >= 4) {
+        offset -= 4;
     }
     getPosts();
 });
 buttonNext.addEventListener("click", () => {
-    offset += 2;
+    offset += 4;
     getPosts();
 });
 
