@@ -269,6 +269,7 @@ p {
 
 #prev-arrow-cont,
 #next-arrow-cont {
+  display: none;
   cursor: pointer;
   font-size: 35px;
   position: absolute;
@@ -557,13 +558,6 @@ textarea {
   }
 
   /* Carousel */
-
-  .button-container .prev,
-  .button-container .next {
-    font-size: 40px;
-    position: absolute;
-    margin: 0 100px 0 100px;
-  }
 
   /* Posts Page */
 

@@ -6,7 +6,7 @@ const hiddenPosts = document.querySelector(".hidden-posts-container");
 
 moreButton.addEventListener("click", () => {
 
-    if (hiddenPosts.style.display === "none") {
+    if (moreButton.innerText === "View More Posts...") {
 
         hiddenPosts.style.display = "flex";
         moreButton.innerText = "View Less Posts..."

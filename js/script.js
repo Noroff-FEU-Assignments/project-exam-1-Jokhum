@@ -10,6 +10,7 @@ const windowSize = matchMedia("max-width: 1024px");
 
 const toTopButton = document.getElementById("btt-btn");
 
+
 // Clicks
 
 // Burger / Nav
@@ -41,7 +42,7 @@ closeBurger.addEventListener("click", () => {
 
 });
 
-// Clicking Outside of Burger Closes the menu
+// Clicking Outside of Burger Closes the menu 
 
 window.addEventListener('mouseup',(event) => {
 
@@ -61,11 +62,14 @@ window.onscroll = function() {backTop()};
 
 function backTop() {
   if (document.documentElement.scrollTop > 250) {
+
     toTopButton.style.display = "block";
+
   } else {
+
     toTopButton.style.display = "none";
   }
-}
+};
 
 // Scroll back to top on click.
 
@@ -74,3 +78,4 @@ toTopButton.addEventListener("click", () => {
     document.documentElement.scrollTop = 0;
 
 });
+

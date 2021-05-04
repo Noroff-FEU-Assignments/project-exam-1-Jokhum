@@ -1,27 +1,17 @@
-const url = "https://jkmzd.eu/blog-api/wp-json/wp/v2/posts";
+const url = "https://jkmzd.eu/blog-api/wp-json/wp/v2/";
 
 const postContainer = document.querySelector(".post-container");
-
 const buttonPrevious = document.querySelector("#prev-arrow-cont");
-
 const buttonNext = document.querySelector("#next-arrow-cont");
 
- 
-
-let length = 4;
+let length = 5;
 let offset = 0;
 
-
-
-
-
-async function getPosts() {
-
+async function getPosts(url) {
 
     try {
 
-
-    const response = await fetch(url + `?per_page=${length}&offset=${offset}&?_embed`);
+    const response = await fetch(url + `posts?per_page=${length}&offset=${offset}&?_embed`);
 
     const json = await response.json();
 
@@ -30,17 +20,16 @@ async function getPosts() {
     } else {
         buttonPrevious.style.display = "block";
     }
-    if (json.length < 4) {
+    if (json.length < 5) {
         buttonNext.style.display = "none";
     } else {
         buttonNext.style.display = "block";
     }
 
-
     postContainer.innerHTML = "";
 
-    for (let i = 0; i < json.length; i++) {
-
+    for (let i = 0; i < 4; i++) {
+        
         postContainer.innerHTML += `
                                     <div class="post-card">
                                     ${json[i].content.rendered}
@@ -51,82 +40,23 @@ async function getPosts() {
                                     `;
     }
 
-
     } catch (error) {
         console.log(error);
     }
-};
+}
 
 buttonPrevious.addEventListener("click", () => {
     if (offset >= 4) {
         offset -= 4;
     }
-    getPosts();
+    getPosts(url);
 });
 buttonNext.addEventListener("click", () => {
     offset += 4;
-    getPosts();
+    getPosts(url);
 });
 
 
-getPosts();
+getPosts(url);
 
 
-
-
-/* const apiUrl =
-    "https://jkmzd.eu/blog-api/wp-json/wp/v2/";
-
-let length = 2;
-let offset = 0;
-
-const buttonPrevious = document.querySelector("#prev-arrow-cont");
-const buttonNext = document.querySelector("#next-arrow-cont");
-const postContainer = document.querySelector(".post-container");
-
-async function fetchApi(url) {
-
-
-    try {
-        const data = await fetch(
-            url + `posts?per_page=${length}&offset=${offset}&?_embed`
-        );
-        const json = await data.json();
-
-        postContainer.innerHTML = "";
-
-        for (let i = 0; i < json.length; i++) {
-
-            postContainer.innerHTML += `
-                                        <div class="post-card">
-                                        <div class="post-card-title">
-                                        ${json[i].title.rendered}
-                                        </div>
-                                        ${json[i].content.rendered}
-                                        </div
-                                        `;
-        }
-    
-
-            
-
-
-    } catch (error) {
-        console.log(error);
-    }
-    
-}
-
-buttonPrevious.addEventListener("click", () => {
-    if (offset >= 2) {
-        offset -= 2;
-    }
-    fetchApi(apiUrl);
-});
-buttonNext.addEventListener("click", () => {
-    offset += 2;
-    fetchApi(apiUrl);
-});
-
-
-fetchApi(apiUrl); */
