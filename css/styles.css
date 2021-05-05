@@ -292,6 +292,14 @@ p {
   justify-content: center;
 }
 
+.empty-results {
+  text-align: center;
+  display: none;
+  color: #4b4b4b;
+  font-size: 15px;
+  height: 300px;
+}
+
 /* Post View on Posts Page */
 
 .posts-container {
