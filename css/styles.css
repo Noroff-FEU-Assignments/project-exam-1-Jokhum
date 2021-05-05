@@ -265,6 +265,7 @@ p {
 /* Carousel on index*/
 
 .carousel-container {
+  height: 825px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -297,11 +298,12 @@ p {
 }
 
 .empty-results {
+  position: absolute;
   text-align: center;
   display: none;
   color: #4b4b4b;
   font-size: 15px;
-  height: 300px;
+  width: 100vw;
 }
 
 /* Post View on Posts Page */
@@ -328,18 +330,17 @@ p {
   justify-content: center;
 }
 
-#see-more-button {
+#see-more-button,
+#go-back-btn {
   cursor: pointer;
-  border: 1px solid #d62f26;
+  border: 1px solid #4b4b4b;
   border-radius: 5px;
-  background-color: #4b4b4b;
-  color: white;
   padding: 10px 15px 10px 15px;
 }
 
 #btt-btn {
   cursor: pointer;
-  border: 2px solid #d62f26;
+  border: 2px solid #4b4b4b;
   font-size: 25px;
   display: none;
   padding: 5px;
@@ -374,6 +375,19 @@ p {
   max-width: 80vw;
   height: auto;
 }
+
+.back-btn-container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  margin-top: 50px;
+}
+
+/* #go-back-btn {
+  border: 1px solid #4b4b4b;
+  border-radius: 5px;
+  padding: 5px;
+} */
 
 /* Contact */
 

@@ -70,7 +70,7 @@ function createHtml(postInfo) {
 
 // Go back button
 
-createHtml().then(() => {
+getPostInfo().then(() => {
 
     const goBack = document.querySelector("#go-back-btn");
 
