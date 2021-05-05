@@ -1,8 +1,5 @@
 const postPage = document.querySelector(".single-post");
-
 const pageHeading = document.querySelector(".site-title");
-
-const imageMain = document.querySelector(".wp-block-image")
 
 const queryString = document.location.search;
 

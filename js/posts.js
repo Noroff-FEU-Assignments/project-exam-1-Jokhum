@@ -18,7 +18,7 @@ async function getPosts() {
 
     for (let i = 0; i < json.length; i++) {
 
-        if (i <= 9) {
+        if (i <= 4) {
 
         postsContainer.innerHTML += `
                                     <a href="post-page.html?id=${json[i].id}">
@@ -32,7 +32,7 @@ async function getPosts() {
                                     </a>
                                     `;
         } else {
-            
+
         hiddenContainer.innerHTML += `
                                     <a href="post-page.html?id=${json[i].id}">
                                     <div class="post-card">
