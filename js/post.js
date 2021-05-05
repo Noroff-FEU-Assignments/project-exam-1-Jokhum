@@ -11,6 +11,10 @@ const pageUrl = "https://jkmzd.eu/blog-api/wp-json/wp/v2/posts/" + id;
 
 console.log(id);
 
+
+
+// API call for individual posts.
+
 async function getPostInfo() {
 
     try {
@@ -32,6 +36,8 @@ async function getPostInfo() {
 
 getPostInfo();
 
+
+
 // Create HTML for the Post Individual Page.
 
 
@@ -42,17 +48,15 @@ function createHtml(postInfo) {
     const postContent = postInfo.content.rendered;
     document.title = postTitle;
 
-
     try {
-
-    pageHeading.innerHTML = `<h2 class="site-title">
-                            ${postTitle}
-                            </h2>`;
 
     postPage.innerHTML = `  <div class="page-container">
                              ${postContent}
                              ${postDate}
-                            </div>`;
+                            </div>
+                            <div class="back-btn-container">
+                            <button class="go-back" id="go-back-btn">Go back</button>
+                            </div`;
 
     }
 
@@ -63,3 +67,17 @@ function createHtml(postInfo) {
 
     }
 }
+
+// Go back button
+
+createHtml().then(() => {
+
+    const goBack = document.querySelector("#go-back-btn");
+
+    goBack.addEventListener("click", function() {
+    
+        window.history.back();
+
+    })
+
+})

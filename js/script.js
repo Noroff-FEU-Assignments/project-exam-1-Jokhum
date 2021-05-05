@@ -8,7 +8,6 @@ const fadeContent = document.getElementById("fade-out");
 
 const windowSize = window.matchMedia("(max-width: 1024px)");
 
-const toTopButton = document.getElementById("btt-btn");
 
 
 // Clicks
@@ -56,6 +55,8 @@ if(event.target != navBar && event.target.parentNode != navBar && windowSize.mat
 }
 });  
 
+const toTopButton = document.getElementById("btt-btn");
+
 // Adding a back to top button when you scrolled 250 px down.
 
 window.onscroll = function() {backTop()};
@@ -78,4 +79,6 @@ toTopButton.addEventListener("click", () => {
     document.documentElement.scrollTop = 0;
 
 });
+
+
 

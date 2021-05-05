@@ -8,8 +8,11 @@ const noResults = document.querySelector(".empty-results");
 let length = 4;
 let offset = 0;
 
+// API call
 
 async function getPosts(url) {
+
+    // Smaller Screens
 
     if (windowSize.matches) {
 
@@ -19,6 +22,7 @@ async function getPosts(url) {
 
     const json = await response.json();
 
+    // Button Visibility Criteria
 
     if (offset === 0) {
 
@@ -44,7 +48,11 @@ async function getPosts(url) {
 
     }
 
+    // Remove Loader etc.
+
     postContainer.innerHTML = "";
+
+    // Add HTML to each post.
 
     for (let i = 0; i < json.length; i++) {
         
@@ -62,6 +70,8 @@ async function getPosts(url) {
     } catch (error) {
         console.log(error);
     }
+
+    // Same procedure but for screens above 1024px
 
     } else {
 
@@ -120,6 +130,7 @@ async function getPosts(url) {
 
 getPosts(url);
 
+// Eventlisteners for my carousel arrows.
 
 buttonPrevious.addEventListener("click", () => {
 

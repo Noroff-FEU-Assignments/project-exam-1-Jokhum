@@ -61,6 +61,10 @@ p {
   color: #4b4b4b;
 }
 
+.author-copyright {
+  font-weight: 600;
+}
+
 /* Navigation bar */
 
 .hamburger,
@@ -248,7 +252,7 @@ p {
 /* Site Title */
 
 .site-title {
-  padding: 2rem;
+  padding: 2rem 1rem 2rem 1rem;
   text-align: center;
 }
 
@@ -335,12 +339,12 @@ p {
 
 #btt-btn {
   cursor: pointer;
+  border: 2px solid #d62f26;
   font-size: 25px;
   display: none;
-  background-color: #4b4b4b;
   padding: 5px;
   border-radius: 5px;
-  color: #d62f26;
+  color: #4b4b4b;
   position: fixed;
   bottom: 35px;
   right: 15px;
@@ -350,11 +354,13 @@ p {
 
 .single-post {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .page-container {
-  width: 90%;
+  width: 80%;
   gap: 25px;
   display: flex;
   flex-direction: column;
@@ -365,7 +371,7 @@ p {
 .page-container img {
   border: 1px solid #4b4b4b;
   border-radius: 5px;
-  max-width: 90vw;
+  max-width: 80vw;
   height: auto;
 }
 

@@ -3,6 +3,7 @@ const urlPosts = "https://jkmzd.eu/blog-api/wp-json/wp/v2/posts/?per_page=12";
 const postsContainer = document.querySelector(".posts-container");
 const hiddenContainer = document.querySelector(".hidden-posts-container");
  
+// API call for posts page
 
 async function getPosts() {
 
@@ -18,6 +19,15 @@ async function getPosts() {
 
     for (let i = 0; i < json.length; i++) {
 
+        const myArray = json[i].content.rendered.match(
+            /\<p>.*?<\/p>|https.*?\.jpg/g
+        );
+
+        console.log(myArray);
+        console.log(myArray[6]);
+
+        // Only 5 firsts posts goes into this container.
+
         if (i <= 4) {
 
         postsContainer.innerHTML += `
@@ -32,6 +42,8 @@ async function getPosts() {
                                     </a>
                                     `;
         } else {
+
+        // Putting results after 5 first into the hidden container.
 
         hiddenContainer.innerHTML += `
                                     <a href="post-page.html?id=${json[i].id}">
