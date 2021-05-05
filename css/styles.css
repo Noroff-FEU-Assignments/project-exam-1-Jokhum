@@ -337,6 +337,29 @@ p {
   right: 15px;
 }
 
+/* Individual Post Page */
+
+.single-post {
+  display: flex;
+  justify-content: center;
+}
+
+.page-container {
+  width: 90%;
+  gap: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-container img {
+  border: 1px solid #4b4b4b;
+  border-radius: 5px;
+  max-width: 90vw;
+  height: auto;
+}
+
 /* Contact */
 
 #contact-information-form-container {
@@ -559,6 +582,19 @@ textarea {
 
   /* Carousel */
 
+  #prev-arrow-cont,
+  #next-arrow-cont {
+    font-size: 50px;
+    font-weight: 900;
+  }
+
+  #prev-arrow-cont {
+    left: 100px;
+  }
+  #next-arrow-cont {
+    right: 100px;
+  }
+
   /* Posts Page */
 
   .posts-container {
@@ -584,5 +620,19 @@ textarea {
   .post-card img {
     max-width: 250px;
     height: auto;
+  }
+
+  /* Individual Posts */
+
+  .page-container {
+    flex-direction: row;
+  }
+
+  .page-container img {
+    max-width: 25vw;
+  }
+
+  .page-container p {
+    max-width: 25vw;
   }
 }

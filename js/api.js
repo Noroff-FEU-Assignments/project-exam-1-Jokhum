@@ -4,13 +4,13 @@ const postContainer = document.querySelector(".post-container");
 const buttonPrevious = document.querySelector("#prev-arrow-cont");
 const buttonNext = document.querySelector("#next-arrow-cont");
 
-let length = 5;
+let length = 4;
 let offset = 0;
-let smallMedia = true;
+/* let smallMedia = true;
 let bigMedia = true;
-let width = validateWidth();
+let width = validateWidth(); */
 
-function validateWidth() {
+/* function validateWidth() {
 
     if (window.innerWidth <= 1024) {
 
@@ -23,7 +23,9 @@ function validateWidth() {
         return 4;
 
     }
-}
+} */
+
+
 
 async function getPosts(url) {
 
@@ -33,12 +35,13 @@ async function getPosts(url) {
 
     const json = await response.json();
 
+
     if (offset === 0) {
         buttonPrevious.style.display = "none";
     } else {
         buttonPrevious.style.display = "block";
     }
-    if (json.length < 5) {
+    if (json.length < 4) {
         buttonNext.style.display = "none";
     } else {
         buttonNext.style.display = "block";
@@ -46,15 +49,16 @@ async function getPosts(url) {
 
     postContainer.innerHTML = "";
 
-    for (let i = 0; i < width; i++) {
+    for (let i = 0; i < json.length; i++) {
         
-        postContainer.innerHTML += `
-                                    <div class="post-card">
-                                    ${json[i].content.rendered}
+        postContainer.innerHTML += `<a href="post-page.html?id=${json[i].id}">
+                                    <div class="post-card">                                    
+                                    ${json[i].content.rendered}                                  
                                     <div class="post-card-title">
                                     ${json[i].title.rendered}
                                     </div>
-                                    </div
+                                    </div>
+                                    </a>
                                     `;
     }
 
@@ -63,8 +67,10 @@ async function getPosts(url) {
     }
 }
 
+getPosts(url);
 
-window.addEventListener("resize", () => {
+
+/* window.addEventListener("resize", () => {
 
     if (window.innerWidth <= 1024 && smallMedia) {
 
@@ -87,7 +93,7 @@ window.addEventListener("resize", () => {
 
         getPosts(url);
     }
-});
+}); */
 
 buttonPrevious.addEventListener("click", () => {
 
@@ -104,6 +110,15 @@ buttonNext.addEventListener("click", () => {
 });
 
 
-getPosts(url);
+
+/* getPosts(url).then(() => {
+
+    postContainer.innerHTML = "";
+
+    postContainer.innerHTML += `
+    <figure class="wp-block-image size-large"></figure>`
+
+
+}) */
 
 

@@ -1,4 +1,4 @@
-const url = "https://jkmzd.eu/blog-api/wp-json/wp/v2/posts/?per_page=12";
+const urlPosts = "https://jkmzd.eu/blog-api/wp-json/wp/v2/posts/?per_page=12";
 
 const postsContainer = document.querySelector(".posts-container");
 const hiddenContainer = document.querySelector(".hidden-posts-container");
@@ -6,7 +6,7 @@ const hiddenContainer = document.querySelector(".hidden-posts-container");
 
 async function getPosts() {
 
-    const response = await fetch(url);
+    const response = await fetch(urlPosts);
 
     const results = await response.json();
 
@@ -20,21 +20,26 @@ async function getPosts() {
 
         if (i <= 9) {
         postsContainer.innerHTML += `
+                                    <a href="post-page.html?id=${json[i].id}">
                                     <div class="post-card">
                                     ${json[i].content.rendered}
+                                    
                                     <div class="post-card-title">
                                     ${json[i].title.rendered}
                                     </div>
                                     </div
+                                    </a>
                                     `;
         } else {
         hiddenContainer.innerHTML += `
+                                    <a href="post-page.html?id=${json[i].id}">
                                     <div class="post-card">
-                                    ${json[i].content.rendered}
+                                    ${json[i].content.rendered}                                   
                                     <div class="post-card-title">
                                     ${json[i].title.rendered}
                                     </div>
                                     </div>
+                                    </a>
                                     `;
                                 }
     }

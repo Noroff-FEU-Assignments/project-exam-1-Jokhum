@@ -6,7 +6,7 @@ const navBar = document.getElementById("nav-bar");
 
 const fadeContent = document.getElementById("fade-out");
 
-const windowSize = matchMedia("max-width: 1024px");
+const windowSize = window.matchMedia("(max-width: 1024px)");
 
 const toTopButton = document.getElementById("btt-btn");
 
@@ -46,7 +46,7 @@ closeBurger.addEventListener("click", () => {
 
 window.addEventListener('mouseup',(event) => {
 
-if(event.target != navBar && event.target.parentNode != navBar && windowSize.matches){
+if(event.target != navBar && event.target.parentNode != navBar && windowSize.matches) {
 
     navBar.classList.remove("show");
     hamburger.style.display = "block";
