@@ -5,7 +5,7 @@ const buttonPrevious = document.querySelector("#prev-arrow-cont");
 const buttonNext = document.querySelector("#next-arrow-cont");
 const noResults = document.querySelector(".empty-results");
 
-let length = 4;
+let length = 5;
 let offset = 0;
 
 // API call
@@ -18,9 +18,11 @@ async function getPosts(url) {
 
     try {
 
-    const response = await fetch(url + `posts?per_page=2&offset=${offset}&?_embed`);
+    const response = await fetch(url + `posts?per_page=2&offset=${offset}&_embed`);
 
     const json = await response.json();
+
+    console.log(json);
 
     // Button Visibility Criteria
 
@@ -36,9 +38,13 @@ async function getPosts(url) {
 
     if (json.length < 2) {
 
-        noResults.style.display = "block";
-
         buttonNext.style.display = "none";
+        
+    if (json.length < 1) {
+
+       noResults.style.display = "block";
+
+    }
 
     } else {
         
@@ -56,14 +62,20 @@ async function getPosts(url) {
 
     for (let i = 0; i < json.length; i++) {
         
-        postContainer.innerHTML += `<a href="post-page.html?id=${json[i].id}">
-                                    <div class="post-card">                                    
-                                    ${json[i].content.rendered}                                  
+        postContainer.innerHTML += `
+                                    <div class="post-card">
+                                    <img src="${json[i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url}" alt="${json[i]._embedded["wp:featuredmedia"][0].alt_text}"/>
+                                    <a href="post-page.html?id=${json[i].id}">
                                     <div class="post-card-title">
-                                    ${json[i].title.rendered}
+                                    <h2>${json[i].title.rendered}</h2>
                                     </div>
+                                    <div class="card-content">
+                                    ${json[i].content.rendered}
                                     </div>
                                     </a>
+                                    <div class="bottom-gradient-card">
+                                    </div>
+                                    </div>
                                     `;
     }
 
@@ -77,7 +89,7 @@ async function getPosts(url) {
 
     try {
 
-        const response = await fetch(url + `posts?per_page=${length}&offset=${offset}&?_embed`);
+        const response = await fetch(url + `posts?per_page=${length}&offset=${offset}&_embed`);
     
         const json = await response.json();
     
@@ -91,11 +103,15 @@ async function getPosts(url) {
             buttonPrevious.style.display = "block";
 
         }
-        if (json.length < 4) {
+        if (json.length < 5) {
+
+            buttonNext.style.display = "none";
+
+        if (json.length < 1) {
 
             noResults.style.display = "block";
 
-            buttonNext.style.display = "none";
+        }
 
         } else {
 
@@ -109,15 +125,21 @@ async function getPosts(url) {
     
         for (let i = 0; i < json.length; i++) {
             
-            postContainer.innerHTML += `<a href="post-page.html?id=${json[i].id}">
-                                        <div class="post-card">                                    
-                                        ${json[i].content.rendered}                                  
-                                        <div class="post-card-title">
-                                        ${json[i].title.rendered}
-                                        </div>
-                                        </div>
-                                        </a>
-                                        `;
+            postContainer.innerHTML += `
+                                    <div class="post-card">
+                                    <img src="${json[i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url}" alt="${json[i]._embedded["wp:featuredmedia"][0].alt_text}"/>
+                                    <a href="post-page.html?id=${json[i].id}">
+                                    <div class="post-card-title">
+                                    <h2>${json[i].title.rendered}</h2>
+                                    </div>
+                                    <div class="card-content">
+                                    ${json[i].content.rendered}
+                                    </div>
+                                    </a>
+                                    <div class="bottom-gradient-card">
+                                    </div>
+                                    </div>
+                                    `;
         }
     
         } catch (error) {
@@ -139,7 +161,7 @@ buttonPrevious.addEventListener("click", () => {
         offset -= 2;
 
     } else {
-        offset -=4;
+        offset -=5;
     }
 
     getPosts(url);
@@ -152,7 +174,7 @@ buttonNext.addEventListener("click", () => {
         offset += 2;
 
     } else {
-        offset +=4;
+        offset +=5;
     }
 
     getPosts(url);
