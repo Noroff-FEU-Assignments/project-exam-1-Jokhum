@@ -1,4 +1,4 @@
-const aboutUrl = "http://jkmzd.eu/blog-api/wp-json/wp/v2/users/";
+const aboutUrl = "https://jkmzd.eu/blog-api/wp-json/wp/v2/users/";
 
 const aboutContainer = document.querySelector(".about-me-container");
 
