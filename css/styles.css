@@ -444,10 +444,6 @@ p {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-#toggled-modal {
-  width: 100%;
-}
-
 .close-modal {
   position: relative;
   text-align: right;
