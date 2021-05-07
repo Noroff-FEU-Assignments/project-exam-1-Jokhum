@@ -217,8 +217,8 @@ p {
   align-items: center;
   overflow: hidden;
   text-overflow: clip;
-  height: 350px;
-  width: 150px;
+  height: 500px;
+  width: 200px;
   border: 1px solid #4b4b4b;
   border-radius: 5px 5px 0px 0px;
   margin-bottom: 15px;
@@ -230,7 +230,7 @@ p {
 
 .post-card img {
   width: 100%;
-  height: 200px;
+  max-height: 300px;
   border-bottom: 1px solid #4b4b4b;
 }
 
@@ -278,7 +278,7 @@ p {
 /* Carousel on index*/
 
 .carousel-container {
-  height: 725px;
+  height: 600px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -419,6 +419,45 @@ p {
   flex-direction: row;
   justify-content: space-between;
 }
+
+.modal-cont {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.modal-content {
+  color: white;
+  margin: auto;
+  width: 90vw;
+  text-align: center;
+}
+
+.modal-content p {
+  color: white;
+  position: relative;
+  bottom: 25px;
+  width: fit-content;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#toggled-modal {
+  width: 100%;
+}
+
+.close-modal {
+  position: relative;
+  text-align: right;
+  padding-bottom: 5px;
+}
+
+#exit-modal i {
+  cursor: pointer;
+}
+
 /* #go-back-btn {
   border: 1px solid #4b4b4b;
   border-radius: 5px;
@@ -706,18 +745,14 @@ textarea {
   /* Blog Cards */
 
   .post-card {
-    height: 450px;
-    width: 160px;
+    height: 500px;
+    width: 200px;
     border: 1px solid #4b4b4b;
     border-radius: 5px 5px 0px 0px;
   }
 
   .post-card-title {
     margin-bottom: 0.5rem;
-  }
-
-  .post-card img {
-    height: 300px;
   }
 
   /* Individual Posts */
@@ -729,5 +764,13 @@ textarea {
 
   .page-container p {
     max-width: 25vw;
+  }
+
+  .modal-content {
+    height: 70vh;
+    width: auto;
+  }
+  .close-modal {
+    font-size: 2rem;
   }
 }

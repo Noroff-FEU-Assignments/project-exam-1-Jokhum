@@ -18,7 +18,7 @@ async function getPosts(url) {
 
     try {
 
-    const response = await fetch(url + `posts?per_page=2&offset=${offset}&_embed`);
+    const response = await fetch(url + `posts?per_page=1&offset=${offset}&_embed`);
 
     const json = await response.json();
 
@@ -36,7 +36,7 @@ async function getPosts(url) {
 
     }
 
-    if (json.length < 2) {
+    if (json.length < 1) {
 
         buttonNext.style.display = "none";
         
@@ -64,7 +64,7 @@ async function getPosts(url) {
         
         postContainer.innerHTML += `
                                     <div class="post-card">
-                                    <img src="${json[i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url}" alt="${json[i]._embedded["wp:featuredmedia"][0].alt_text}"/>
+                                    <img src="${json[i]._embedded["wp:featuredmedia"][0].media_details.sizes.large.source_url}" alt="${json[i]._embedded["wp:featuredmedia"][0].alt_text}"/>
                                     <a href="post-page.html?id=${json[i].id}">
                                     <div class="post-card-title">
                                     <h2>${json[i].title.rendered}</h2>
@@ -158,7 +158,7 @@ buttonPrevious.addEventListener("click", () => {
 
     if (windowSize.matches) {
 
-        offset -= 2;
+        offset -= 1;
 
     } else {
         offset -=5;
@@ -171,7 +171,7 @@ buttonNext.addEventListener("click", () => {
 
     if (windowSize.matches) {
 
-        offset += 2;
+        offset += 1;
 
     } else {
         offset +=5;

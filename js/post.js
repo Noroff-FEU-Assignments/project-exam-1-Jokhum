@@ -62,12 +62,18 @@ function createHtml(postInfo) {
 
     postPage.innerHTML = `  <div class="page-container">
                             <div class="image-text-container">
-                            <img class="featured-image" src="${postImage}" alt="${postImageAlt}">
+                            <img id="featured-image" src="${postImage}" alt="${postImageAlt}">
                             <div class="date-author-text"><span class="info" id="author">Article by: ${postAuthor}</span> <span class="info" id="date">Posted: ${postDate}</span></div>
                             </div>
                             <div class="post-content">
                              ${postContent}
                              </div>
+                            </div>
+                            <div id="modal-container" class="modal-cont">
+                            <div class="modal-content">
+                            <div class="close-modal" id="exit-modal"><i class="fas fa-times" id="exit-btn"></i></div>
+                            <img id="toggled-modal" src="${postImage}" alt="${postImageAlt}">
+                            </div>
                             </div>
                             <div class="back-btn-container">
                             <button class="go-back" id="go-back-btn">Go back</button>
@@ -83,7 +89,7 @@ function createHtml(postInfo) {
     }
 }
 
-// Go back button
+// Go back button & Modal Code
 
 getPostInfo().then(() => {
 
@@ -95,6 +101,39 @@ getPostInfo().then(() => {
 
     })
 
+    // Modal Listener
+
+    const modalImg = document.getElementById("featured-image");
+    const modalContainer = document.getElementById("modal-container");
+    const exitModal = document.getElementById("exit-btn");
+
+    // Clickevent on modal image.
+
+    modalImg.addEventListener("click", () => {
+
+    modalContainer.style.display = "flex";
+
 })
 
+    // Making sure the modal exits if clicking outside of it.
+
+    window.onclick = (event) => {
+
+        if (event.target == modalContainer) {
+
+            modalContainer.style.display = "none";
+
+    }
+}
+
+    // Exiting the modal by using the "X".
+
+    exitModal.onclick = () => {
+
+        modalContainer.style.display = "none";
+
+}});
+
+
+// Modal Listener
 
