@@ -70,11 +70,10 @@ p {
 .hamburger,
 .close-burger {
   font-size: 18px;
-  background-color: #4b4b4b;
   color: white;
+  background-color: #4b4b4b;
   width: 100%;
   height: 38px;
-  border-top: 5px solid white;
   cursor: pointer;
 }
 
@@ -146,17 +145,15 @@ p {
   gap: 1rem;
   background-color: #4b4b4b;
   height: 35px;
-  border-bottom: 5px solid white;
 }
 
 /* Banner css */
 
 .techy-title {
-  background-image: url("/images/backgroundtechy.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 350px;
+  height: 100px;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -377,6 +374,10 @@ p {
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+}
+
+.post-content p {
+  margin-bottom: 1rem;
 }
 
 .page-container {
@@ -690,16 +691,18 @@ textarea {
   /* Title & Subtitle Text*/
 
   .techy-title {
+    background-image: url("/images/backgroundtechy.jpg");
     margin: 0;
+    height: 350px;
   }
 
   .title-text {
-    font-size: 46px;
+    font-size: 2vw;
   }
 
   .subtitle-text {
-    font-size: 16px;
-    width: 150px;
+    font-size: 0.6vw;
+    width: 7%;
   }
 
   /* Main Content*/
