@@ -24,14 +24,12 @@ async function getAuthor() {
  
             aboutContainer.innerHTML += `
                                         <div class="techy-image-box"> 
-                                        <h2 id="name">${techyName}</h2>
                                         <img class="techy-image" src="${techyImage}">
                                         </div>
                                         <div class="techy-info-box">
-                                        <p class="description-tech">${techyDescript}</p>
-                                        </div>
-                            
-                            
+                                        <h2 id="name">${techyName}</h2>
+                                        <p class="description-tech">${techyDescript} Thanks for watching my site.</p>
+                                        </div>                                      
                                     `;
         }
     

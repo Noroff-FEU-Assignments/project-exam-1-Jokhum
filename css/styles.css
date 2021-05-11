@@ -602,7 +602,7 @@ textarea {
 }
 
 .techy-info-box {
-  width: 400px;
+  width: 90%;
 }
 
 /* Footer */
@@ -772,5 +772,15 @@ textarea {
   }
   .close-modal {
     font-size: 2rem;
+  }
+
+  /* About Me */
+
+  .about-me-container {
+    flex-direction: row;
+  }
+
+  .techy-info-box {
+    width: 25%;
   }
 }
