@@ -163,15 +163,15 @@ p {
 }
 
 .title-text {
-  margin: 0 0 5px 0;
-  font-size: 3vw;
+  margin-bottom: 2px;
+  font-size: 1.5vw;
 }
 
 .subtitle-text {
   font-family: niveau-grotesk, sans-serif;
   font-weight: 300;
   font-style: italic;
-  font-size: 0.8vw;
+  font-size: 0.5vw;
   width: 7vw;
   margin-left: auto;
   margin-right: auto;
@@ -787,6 +787,6 @@ textarea {
 
   .subtitle-text {
     font-size: 45%;
-    width: 10vw;
+    width: 40px;
   }
 }
