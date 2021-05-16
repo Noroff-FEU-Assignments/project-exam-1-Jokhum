@@ -792,11 +792,11 @@ textarea {
 
 @media only screen and (max-width: 1024px) {
   .title-text {
-    font-size: 90%;
+    font-size: 70%;
   }
 
   .subtitle-text {
-    font-size: 45%;
-    width: 40px;
+    font-size: 25%;
+    width: 30px;
   }
 }
