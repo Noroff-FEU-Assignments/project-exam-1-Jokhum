@@ -154,7 +154,7 @@ p {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 200px;
+  height: 100px;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -216,7 +216,7 @@ p {
   align-items: center;
   overflow: hidden;
   text-overflow: clip;
-  height: 500px;
+  height: 400px;
   width: 200px;
   border: 1px solid #4b4b4b;
   border-radius: 5px 5px 0px 0px;
@@ -228,16 +228,19 @@ p {
 }
 
 .post-card img {
-  width: 100%;
-  max-height: 300px;
+  height: 200px;
   border-bottom: 1px solid #4b4b4b;
 }
 
 .post-card-title {
-  padding: 10px 5px 10px 5px;
+  width: 80%;
+  margin: 8px 0 10px 0;
+}
+
+.card-publish-date {
   color: #4b4b4b;
-  text-align: center;
-  width: 100%;
+  width: 80%;
+  padding: 10px 0 10px 0;
 }
 
 .card-content {
@@ -277,7 +280,7 @@ p {
 /* Carousel on index*/
 
 .carousel-container {
-  min-height: 600px;
+  min-height: 500px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -288,7 +291,8 @@ p {
 #next-arrow-cont {
   display: none;
   cursor: pointer;
-  font-size: 35px;
+  font-size: 45px;
+  font-weight: 900;
   position: absolute;
   color: #4b4b4b;
 }
@@ -383,7 +387,7 @@ p {
 }
 
 .page-container {
-  width: 80%;
+  width: 80vw;
   gap: 35px;
   display: flex;
   flex-direction: column;
@@ -394,7 +398,7 @@ p {
 .page-container img {
   border: 1px solid #4b4b4b;
   border-radius: 5px;
-  max-width: 80vw;
+  max-width: 60vw;
   height: auto;
 }
 
@@ -710,8 +714,8 @@ textarea {
 
   #prev-arrow-cont,
   #next-arrow-cont {
-    font-size: 50px;
-    font-weight: 900;
+    font-size: 70px;
+    font-weight: bolder;
   }
 
   #prev-arrow-cont {
@@ -738,14 +742,19 @@ textarea {
   /* Blog Cards */
 
   .post-card {
-    height: 500px;
-    width: 200px;
+    height: 400px;
+    width: 250px;
     border: 1px solid #4b4b4b;
     border-radius: 5px 5px 0px 0px;
   }
 
   .post-card-title {
     margin-bottom: 0.5rem;
+  }
+
+  .post-card img {
+    width: 100%;
+    height: auto;
   }
 
   /* Individual Posts */

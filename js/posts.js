@@ -17,9 +17,6 @@ async function getPosts() {
 
     for (let i = 0; i < json.length; i++) {
 
-        const myArray = json[i].content.rendered.match(
-            /\<p>.*?<\/p>|https.*?\.jpg/g
-        );
 
         // Only 5 firsts posts goes into this container.
 

@@ -4,21 +4,35 @@ const postContainer = document.querySelector(".post-container");
 const buttonPrevious = document.querySelector("#prev-arrow-cont");
 const buttonNext = document.querySelector("#next-arrow-cont");
 const noResults = document.querySelector(".empty-results");
-
-let length = 5;
 let offset = 0;
+
+// Fixed results on screen at once by media width.
+
+function validateWidth() {
+    if (window.innerWidth <= 1024) {
+        return 1;
+    }
+
+    if (window.innerWidth >= 1025) {
+        return 5;
+    }
+
+
+}
+validateWidth();
+
+console.log(validateWidth);
 
 // API call
 
 async function getPosts(url) {
 
-    // Smaller Screens
-
-    if (windowSize.matches) {
 
     try {
 
-    const response = await fetch(url + `posts?per_page=1&offset=${offset}&_embed`);
+    let length = validateWidth();
+
+    const response = await fetch(url + `posts?per_page=${length}&offset=${offset}&_embed`);
 
     const json = await response.json();
 
@@ -39,12 +53,8 @@ async function getPosts(url) {
     if (json.length < 1) {
 
         buttonNext.style.display = "none";
+        noResults.style.display = "block";
         
-    if (json.length < 1) {
-
-       noResults.style.display = "block";
-
-    }
 
     } else {
         
@@ -63,92 +73,33 @@ async function getPosts(url) {
     for (let i = 0; i < json.length; i++) {
         
         postContainer.innerHTML += `
-                                    <div class="post-card">
-                                    <img src="${json[i]._embedded["wp:featuredmedia"][0].media_details.sizes.large.source_url}" alt="${json[i]._embedded["wp:featuredmedia"][0].alt_text}"/>
                                     <a href="post-page.html?id=${json[i].id}">
+                                    <div class="post-card">
+                                    <div class="card-image-container">
+                                    <img src="${json[i]._embedded["wp:featuredmedia"][0].media_details.sizes.large.source_url}" alt="${json[i]._embedded["wp:featuredmedia"][0].alt_text}"/>   
+                                    </div>
+                                    <span class="card-publish-date">
+                                    Posted: ${json[i].date.split("T")[0]}
+                                    </span>                                                               
                                     <div class="post-card-title">
                                     <h2>${json[i].title.rendered}</h2>
                                     </div>
                                     <div class="card-content">
                                     ${json[i].content.rendered}
-                                    </div>
-                                    </a>
+                                    </div>                                   
                                     <div class="bottom-gradient-card">
                                     </div>
                                     </div>
+                                    </a>
                                     `;
     }
 
     } catch (error) {
         console.log(error);
     }
-
-    // Same procedure but for screens above 1024px
-
-    } else {
-
-    try {
-
-        const response = await fetch(url + `posts?per_page=${length}&offset=${offset}&_embed`);
-    
-        const json = await response.json();
-    
-    
-        if (offset === 0) {
-
-            buttonPrevious.style.display = "none";
-
-        } else {
-
-            buttonPrevious.style.display = "block";
-
-        }
-        if (json.length < 5) {
-
-            buttonNext.style.display = "none";
-
-        if (json.length < 1) {
-
-            noResults.style.display = "block";
-
-        }
-
-        } else {
-
-            noResults.style.display = "none";
-
-            buttonNext.style.display = "block";
-
-        }
-    
-        postContainer.innerHTML = "";
-    
-        for (let i = 0; i < json.length; i++) {
-            
-            postContainer.innerHTML += `
-                                    <div class="post-card">
-                                    <img src="${json[i]._embedded["wp:featuredmedia"][0].media_details.sizes.medium.source_url}" alt="${json[i]._embedded["wp:featuredmedia"][0].alt_text}"/>
-                                    <a href="post-page.html?id=${json[i].id}">
-                                    <div class="post-card-title">
-                                    <h2>${json[i].title.rendered}</h2>
-                                    </div>
-                                    <div class="card-content">
-                                    ${json[i].content.rendered}
-                                    </div>
-                                    </a>
-                                    <div class="bottom-gradient-card">
-                                    </div>
-                                    </div>
-                                    `;
-        }
-    
-        } catch (error) {
-
-            console.log(error);
-
-        }
 }
-}
+
+
 
 getPosts(url);
 
