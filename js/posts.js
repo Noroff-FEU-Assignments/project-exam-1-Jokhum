@@ -23,39 +23,44 @@ async function getPosts() {
         if (i <= 5) {
 
         postsContainer.innerHTML += `
-                                    
+                                    <a href="post-page.html?id=${json[i].id}">
                                     <div class="post-card">
                                     <img src="${json[i]._embedded["wp:featuredmedia"][0].media_details.sizes.large.source_url}" alt="${json[i]._embedded["wp:featuredmedia"][0].alt_text}"/>
-                                    <a href="post-page.html?id=${json[i].id}">
+                                    <span class="card-publish-date">
+                                    Posted: ${json[i].date.split("T")[0]}
+                                    </span>                          
                                     <div class="post-card-title">
                                     <h2>${json[i].title.rendered}</h2>
                                     </div>
                                     <div class="card-content">
                                     ${json[i].content.rendered}
                                     </div>
-                                    </a>
                                     <div class="bottom-gradient-card">
                                     </div>
                                     </div>
+                                    </a>
                                     `;
         } else {
 
         // Putting results after 5 first into the hidden container.
 
         hiddenContainer.innerHTML += `
+                                    <a href="post-page.html?id=${json[i].id}">
                                     <div class="post-card">
                                     <img src="${json[i]._embedded["wp:featuredmedia"][0].media_details.sizes.large.source_url}" alt="${json[i]._embedded["wp:featuredmedia"][0].alt_text}"/>
-                                    <a href="post-page.html?id=${json[i].id}">
+                                    <span class="card-publish-date">
+                                    Posted: ${json[i].date.split("T")[0]}
+                                    </span> 
                                     <div class="post-card-title">
                                     <h2>${json[i].title.rendered}</h2>
                                     </div>
                                     <div class="card-content">
                                     ${json[i].content.rendered}
                                     </div>
-                                    </a>
                                     <div class="bottom-gradient-card">
                                     </div>
                                     </div>
+                                    </a>
                                     `;
                                 }
     }

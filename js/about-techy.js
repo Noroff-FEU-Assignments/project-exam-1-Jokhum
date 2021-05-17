@@ -28,7 +28,8 @@ async function getAuthor() {
                                         </div>
                                         <div class="techy-info-box">
                                         <h2 id="name">${techyName}</h2>
-                                        <p class="description-tech">${techyDescript} Thanks for watching my site.</p>
+                                        <p class="description-tech">${techyDescript}.</p>
+                                        <p>Thanks for watching my site.</p>
                                         </div>                                      
                                     `;
         }
