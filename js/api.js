@@ -50,11 +50,16 @@ async function getPosts(url) {
 
     }
 
-    if (json.length < 1) {
+    if (json.length < 1 && window.innerWidth <= 1024) {
 
         buttonNext.style.display = "none";
         noResults.style.display = "block";
-        
+
+    }
+    
+    else if (json.length < 5 && window.innerWidth >= 1025) {
+
+        buttonNext.style.display = "none";
 
     } else {
         
