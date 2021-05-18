@@ -336,14 +336,6 @@ p {
   margin: 0 45px 0 45px;
 }
 
-.hidden-posts-container {
-  display: none;
-  justify-content: center;
-  flex-flow: row wrap;
-  gap: 10px;
-  margin: 15px 45px 0 45px;
-}
-
 .see-more-btn-container {
   margin: 50px;
   display: flex;
@@ -727,12 +719,6 @@ textarea {
 
   .posts-container {
     margin: 100px 200px 100px 200px;
-    padding: 25px 100px 0 100px;
-    gap: 50px;
-  }
-
-  .hidden-posts-container {
-    margin: 100px 200px 0 200px;
     padding: 25px 100px 0 100px;
     gap: 50px;
   }
