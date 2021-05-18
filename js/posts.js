@@ -1,7 +1,7 @@
-const urlPosts = "https://jkmzd.eu/blog-api/wp-json/wp/v2/posts/?per_page=12&_embed";
-
+let perPage = 6;
+let urlPosts = `https://jkmzd.eu/blog-api/wp-json/wp/v2/posts?page=1&per_page=${perPage}&_embed`;
 const postsContainer = document.querySelector(".posts-container");
-const hiddenContainer = document.querySelector(".hidden-posts-container");
+const moreButton = document.getElementById("see-more-button");
  
 // API call for posts page
 
@@ -18,10 +18,9 @@ async function getPosts() {
     for (let i = 0; i < json.length; i++) {
 
 
-        // Only 5 firsts posts goes into this container.
+        // Only 6 firsts posts goes into this container.
 
-        if (i <= 5) {
-
+   
         postsContainer.innerHTML += `
                                     <a href="post-page.html?id=${json[i].id}">
                                     <div class="post-card">
@@ -40,30 +39,24 @@ async function getPosts() {
                                     </div>
                                     </a>
                                     `;
-        } else {
-
-        // Putting results after 5 first into the hidden container.
-
-        hiddenContainer.innerHTML += `
-                                    <a href="post-page.html?id=${json[i].id}">
-                                    <div class="post-card">
-                                    <img src="${json[i]._embedded["wp:featuredmedia"][0].media_details.sizes.large.source_url}" alt="${json[i]._embedded["wp:featuredmedia"][0].alt_text}"/>
-                                    <span class="card-publish-date">
-                                    Posted: ${json[i].date.split("T")[0]}
-                                    </span> 
-                                    <div class="post-card-title">
-                                    <h2>${json[i].title.rendered}</h2>
-                                    </div>
-                                    <div class="card-content">
-                                    ${json[i].content.rendered}
-                                    </div>
-                                    <div class="bottom-gradient-card">
-                                    </div>
-                                    </div>
-                                    </a>
-                                    `;
-                                }
-    }
+        } 
+    
 }
+
+// Listener on More Posts button.
+
+moreButton.addEventListener("click", () => {
+
+    perPage = 12;
+    urlPosts = `https://jkmzd.eu/blog-api/wp-json/wp/v2/posts?page=1&per_page=${perPage}&_embed`;
+    getPosts();
+
+    if (perPage >= getPosts.length) {
+
+        moreButton.style.display = "none";
+
+    }
+
+});
 
 getPosts();
