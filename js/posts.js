@@ -7,6 +7,8 @@ const moreButton = document.getElementById("see-more-button");
 
 async function getPosts() {
 
+    try {
+
     const response = await fetch(urlPosts);
 
     const json = await response.json();
@@ -41,17 +43,20 @@ async function getPosts() {
                                     `;
         } 
     
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 // Listener on More Posts button.
 
 moreButton.addEventListener("click", () => {
 
-    perPage = 12;
+    perPage += 6;
     urlPosts = `https://jkmzd.eu/blog-api/wp-json/wp/v2/posts?page=1&per_page=${perPage}&_embed`;
     getPosts();
 
-    if (perPage >= getPosts.length) {
+    if (perPage >= 12) {
 
         moreButton.style.display = "none";
 

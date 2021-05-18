@@ -17,7 +17,6 @@ function validateWidth() {
         return 5;
     }
 
-
 }
 validateWidth();
 
