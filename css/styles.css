@@ -147,6 +147,10 @@ p {
   height: 35px;
 }
 
+.hidden-text {
+  font-size: 0;
+}
+
 /* Banner css */
 
 .techy-title {
