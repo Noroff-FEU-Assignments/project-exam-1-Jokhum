@@ -342,7 +342,7 @@ p {
 
 #btt-btn {
   cursor: pointer;
-  border: 2px solid #4b4b4b;
+  border: 2px solid #4b4b4b3b;
   font-size: 25px;
   display: none;
   padding: 5px;
@@ -395,13 +395,12 @@ p {
 }
 
 .info {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-style: italic;
 }
 
 .date-author-text {
-  font-size: 0.8rem;
-  font-style: italic !important;
+  margin-top: 4px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
