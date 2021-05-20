@@ -465,6 +465,7 @@ p {
 /* Contact */
 
 #contact-information-form-container {
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -724,7 +725,7 @@ textarea {
   /* Posts Page */
 
   .posts-container {
-    margin: 100px 200px 100px 200px;
+    margin: 0px 200px 0px 200px;
     padding: 25px 100px 0 100px;
     gap: 50px;
   }
