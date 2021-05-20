@@ -647,6 +647,11 @@ textarea {
     border-bottom: 5px solid white;
   }
 
+  .nav-button {
+    text-align: center;
+    width: 100px;
+  }
+
   .nav-button:hover {
     background-color: inherit;
   }
